@@ -34,8 +34,11 @@ public class BooksMain {
 			case BookMenu.DELETE:
 				booksDelete();
 				break;
-			case BookMenu.SALARY_UP:
-				employeeSalaryUp();
+			case BookMenu.SALARY_UP_PROC:
+				employeeSalaryUpProc();
+				break;
+			case BookMenu.SALARY_UP_FUNC:
+				employeeSalaryUpFunc();
 				break;
 			case BookMenu.EXIT:
 				exitFlag = true;
@@ -46,9 +49,36 @@ public class BooksMain {
 		}
 		System.out.println("The end");
 	}
+	//FUNCTION
+	private static void employeeSalaryUpFunc() throws SQLException {
+        // Connection
+        Connection con = null;
+        CallableStatement cstmt = null;
+
+        // 1 Load,2 connect
+        con = DBConnection.dbCon();
+        
+        System.out.print("조회할 ID 입력: >>");
+        int id = Integer.parseInt(scan.nextLine());
+
+        // 3. cstmt = con.prepareCall("{ ? = call BOOKS_FUNCTION(?)}");
+        cstmt = con.prepareCall("{ ? = call BOOKS_FUNCTION(?)}");
+        cstmt.registerOutParameter(1, Types.VARCHAR);
+        cstmt.setInt(2, id);
+        // 출력될 데이터값으로 3번을 바인딩시킨다.
+
+        int result = cstmt.executeUpdate();
+        String message = cstmt.getString(1);
+        System.out.println(message);
+        // 4.내용이 잘 입력이 되었는지 check
+        System.out.println((result != 0) ? "FUNCTION 성공" : "FUNCTION 실패");
+        // 6.sql 객체 반남
+        DBConnection.dbClose(con, cstmt);
+
+    }
 
 	// 연봉인상 10%
-	private static void employeeSalaryUp() throws SQLException {
+	private static void employeeSalaryUpProc() throws SQLException {
 		// Connection
 		Connection con = null;
 		CallableStatement cstmt = null; 
@@ -127,6 +157,10 @@ public class BooksMain {
 
 		// 1 Load,2 connect
 		con = DBConnection.dbCon();
+		
+		//트랜잭션 시작점
+		con.setAutoCommit(false);
+		
 		// 3.statement
 		Books books = new Books(0, "Head First JAVA", "kdj", "2008", 23000);
 		pstmt = con.prepareStatement("INSERT INTO books VALUES (BOOKS_ID_SEQ.nextval, ?, ?, ?, ?)");
@@ -138,7 +172,13 @@ public class BooksMain {
 		int result = pstmt.executeUpdate();
 		// 4.내용이 잘 입력이 되었는지 check
 		System.out.println((result != 0) ? "입력성공" : "입력실패");
-		// 6.sql 객체 반남
+		if(result != 0) {
+			con.commit();
+		}else {
+			con.rollback();
+		}
+		
+		// 6.sql 객체 반납
 		DBConnection.dbClose(con, pstmt);
 
 	}
@@ -173,7 +213,7 @@ public class BooksMain {
 	}
 
 	private static void printMenu() {
-		System.out.println("Books Menu(1.출력, 2.입력, 3.수정  4.삭제  5.책값인상 6.종료");
+		System.out.println("Books Menu(1.출력, 2.입력, 3.수정  4.삭제  5.책값인상 6.책값 조회 7.종료");
 		System.out.print(">>");
 	}
 
