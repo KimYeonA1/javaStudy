@@ -7,7 +7,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
 //import oracle.jdbc.driver.DBConversion;
 
 public class BooksMain {
