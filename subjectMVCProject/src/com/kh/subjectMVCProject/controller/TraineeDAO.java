@@ -7,11 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.kh.subjectMVCProject.model.LessonVO;
 import com.kh.subjectMVCProject.model.TraineeVO;
 
 public class TraineeDAO {
-	// query
 	public final String TRAINEE_SELECT = "select * from TRAINEE";
 	public final String TRAINEE_ALL_SELECT = "select T.no, T.section, T.regdate, S.num, S.name as sname, L.abbre, L.name as lname "
 			+ " from trainee T inner join student S on T.s_num = S.num "
@@ -21,7 +19,7 @@ public class TraineeDAO {
 	public final String TRAINEE_UPDATE = "UPDATE TRAINEE SET S_NUM = ?, ABBRE = ?, SECTION = ? WHERE NO = ?";
 	public final String TRAINEE_INSERT = "INSERT INTO TRAINEE VALUES(trainee_seq.NEXTVAL, ?, ?, ?,SYSDATE)";
 
-	// TRAINEE 테이블에서 insert 레코드를 삽입한다. (insert)
+	
 	public boolean traineeInsert(TraineeVO tvo) {
 		Connection con = null; // 오라클접속관문
 		PreparedStatement pstmt = null; // 오라클에서 작업할 쿼리문 사용할게 하는 명령문
@@ -44,7 +42,6 @@ public class TraineeDAO {
 		return successFlag;
 	}
 
-	// traineeSelect
     public ArrayList<TraineeVO> traineeSelect(TraineeVO tvo) {
         Connection con = null; // 오라클 DB 접속하는 관문
         PreparedStatement pstmt = null; // 오라클에서 작업할 쿼리문을 사용할수있게 해주는 명령문
@@ -74,7 +71,6 @@ public class TraineeDAO {
     }
 
     
-    // traineeAllSelect
     public ArrayList<TraineeVO> traineeAllSelect(TraineeVO tvo) {
         Connection con = null; // 오라클 DB 접속하는 관문
         PreparedStatement pstmt = null; // 오라클에서 작업할 쿼리문을 사용할수있게 해주는 명령문
@@ -85,7 +81,6 @@ public class TraineeDAO {
             con = DBUtility.dbCon();
             pstmt = con.prepareStatement(TRAINEE_ALL_SELECT);
             rs = pstmt.executeQuery();
-//            T.no, T.section, T.regdate, S.num, S.name as sname, L.abbre, L.name as lname
             while (rs.next()) {
                 int no = rs.getInt("NO");
                 String section = rs.getString("SECTION");
@@ -105,15 +100,12 @@ public class TraineeDAO {
         return traineeList;
     }
 
-	// trainee테이블에서 delete 레코드를 삭제한다. (delete)
-	// 자동으로 커밋기능 셋팅이 되어있다.
 	public boolean traineeDelete(TraineeVO tvo) {
 		Connection con = null; // 오라클에 DB접속
 		PreparedStatement pstmt = null; // 오라클에서 작업할 쿼리문을 사용할 수 있게하는 명령문
 		boolean successFlag = false;
 		try {
 			con = DBUtility.dbCon();
-			// 커밋을 수동으로 바꾼다.
 			con.setAutoCommit(false);
 
 			pstmt = con.prepareStatement(TRAINEE_DELETE);
@@ -137,7 +129,6 @@ public class TraineeDAO {
 		return successFlag;
 	}
 
-	// trainee 테이블에서 update 레코드를 수정한다. (update)
 	public boolean traineeUpdate(TraineeVO tvo) {
 		Connection con = null; // 오라클접속관문
 		PreparedStatement pstmt = null; // 오라클에서 작업할 쿼리문 사용할게 하는 명령문
@@ -161,7 +152,6 @@ public class TraineeDAO {
 		return successFlag;
 	}
 
-	// trainee 테이블에서 select 출력레코드를 리턴한다. (Read)
 	public ArrayList<TraineeVO> traineeSelectSort(TraineeVO lvo) {
 		Connection con = null; // 오라클접속관문
 		PreparedStatement pstmt = null; // 오라클에서 작업할 쿼리문 사용할게 하는 명령문

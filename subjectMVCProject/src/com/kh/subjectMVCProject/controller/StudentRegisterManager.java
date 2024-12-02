@@ -13,7 +13,7 @@ import com.kh.subjectMVCProject.model.SubjectVO;
 public class StudentRegisterManager {
 	public static Scanner sc = new Scanner(System.in);
 
-	// 전체 학생리스트를 출력요청
+	// 전체학생리스트를 출력요청
 	public void selectManager() throws SQLException {
 		StudentDAO sdao = new StudentDAO();
 		ArrayList<StudentVO> studentList = new ArrayList<StudentVO>();

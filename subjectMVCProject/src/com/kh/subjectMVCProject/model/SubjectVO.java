@@ -1,5 +1,6 @@
 package com.kh.subjectMVCProject.model;
 
+
 public class SubjectVO {
 	private int no; // -- pk, seq
 	private String num; // -- 학과번호 01, 02, 03,04,05

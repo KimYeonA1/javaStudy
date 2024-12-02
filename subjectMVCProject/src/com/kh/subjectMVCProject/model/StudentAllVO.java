@@ -2,6 +2,7 @@ package com.kh.subjectMVCProject.model;
 
 import java.sql.Date;
 
+
 public class StudentAllVO {
 	private int no; // --pk, seq
 	private String num; // --학번(년도학과번호)

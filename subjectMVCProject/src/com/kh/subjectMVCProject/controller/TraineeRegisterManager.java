@@ -4,8 +4,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import com.kh.subjectMVCProject.model.StudentVO;
 import com.kh.subjectMVCProject.model.TraineeVO;
+
 
 
 public class TraineeRegisterManager {

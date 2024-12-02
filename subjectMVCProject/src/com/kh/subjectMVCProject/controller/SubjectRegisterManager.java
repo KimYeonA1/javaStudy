@@ -3,8 +3,9 @@ package com.kh.subjectMVCProject.controller;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import com.kh.subjectMVCProject.model.StudentVO;
+
 import com.kh.subjectMVCProject.model.SubjectVO;
+
 
 
 public class SubjectRegisterManager {

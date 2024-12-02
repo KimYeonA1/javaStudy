@@ -7,4 +7,5 @@ public interface TRAINEE_CHOICE {
 	int DELETE = 4;
 	int JOIN_LIST = 5;
 	int MAIN = 6;
+	
 }

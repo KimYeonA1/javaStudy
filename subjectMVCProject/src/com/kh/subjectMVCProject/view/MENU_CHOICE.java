@@ -6,4 +6,5 @@ public interface MENU_CHOICE {
 	int LESSON = 3;
 	int TRAINEE = 4;
 	int EXIT = 5;
+	
 }

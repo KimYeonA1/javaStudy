@@ -1,8 +1,6 @@
 package com.kh.subjectMVCProject.controller;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,7 +10,8 @@ import java.sql.Statement;
 import java.util.Properties;
 
 public class DBUtility {
-
+	
+	
 	public static Connection dbCon()  {
 		Connection con = null;
 		// 1. db.properties file( id, pw, url setting)

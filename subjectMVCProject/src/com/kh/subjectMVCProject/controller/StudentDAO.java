@@ -15,6 +15,7 @@ import com.kh.subjectMVCProject.model.StudentVO;
 
 public class StudentDAO {
 		
+	
 	public static final String STUDENT_SELECT = "SELECT * FROM STUDENT";
 	public static final String STUDENT_SELECT_SEARCH = "SELECT NUM, NAME, EMAIL FROM STUDENT WHERE NAME = ?";
     public static final String STUDENT_INSERT = "insert into student values(student_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate)";

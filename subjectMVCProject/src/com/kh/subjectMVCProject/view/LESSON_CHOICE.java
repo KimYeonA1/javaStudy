@@ -7,4 +7,5 @@ public interface LESSON_CHOICE {
 	int DELETE = 4;
 	int SORT = 5;
 	int MAIN = 6;
+	
 }

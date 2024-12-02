@@ -3,8 +3,6 @@ package com.kh.subjectMVCProject;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import javax.security.auth.Subject;
-
 import com.kh.subjectMVCProject.controller.LessonRegisterManager;
 import com.kh.subjectMVCProject.controller.StudentRegisterManager;
 import com.kh.subjectMVCProject.controller.SubjectRegisterManager;
@@ -15,6 +13,7 @@ import com.kh.subjectMVCProject.view.MenuViewer;
 import com.kh.subjectMVCProject.view.STUDENT_CHOICE;
 import com.kh.subjectMVCProject.view.SUBJECT_CHOICE;
 import com.kh.subjectMVCProject.view.TRAINEE_CHOICE;
+
 
 public class SubjectMain {
 	public static Scanner sc = new Scanner(System.in); 

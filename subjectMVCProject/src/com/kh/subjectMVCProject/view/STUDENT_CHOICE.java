@@ -7,4 +7,5 @@ public interface STUDENT_CHOICE {
 	int DELETE = 4;
 	int LIST_ALL = 5;
 	int MAIN = 6;
+	
 }

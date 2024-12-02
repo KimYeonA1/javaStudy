@@ -12,5 +12,6 @@ public class Test {
 			System.out.println("데이타베이스 접속 실패");
 		}
 	}
+	
 
 }

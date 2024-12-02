@@ -9,13 +9,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
+
 public class DBUtility {
 	public static Connection dbCon() {
 		Connection con = null;
-		// 1. db.properties file( id, pw, url setting)
-		//String filePath = "D:\\javaStudy\\subjectMVCProject\\src\\db.properties";
 		String filePath = "D:\\javaStudy\\subjectMVCProject\\src\\com\\kh\\subjectMVCProject\\view\\db.properties";
-		
+
 		Properties pt = new Properties();
 		try {
 			pt.load(new FileReader(filePath));
@@ -26,11 +25,8 @@ public class DBUtility {
 		String pw = pt.getProperty("pw");
 		String url = pt.getProperty("url");
 
-		// 2. jdbc driver load
-		// 3. db connect
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			//con = DriverManager.getConnection(id, pw, url);
 			con = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521/xe", "SUBJECTDB", "123456");
 		} catch (ClassNotFoundException e) {
 			System.out.println(e.toString());
@@ -39,7 +35,7 @@ public class DBUtility {
 		}
 		return con;
 	}
-	//오버로딩
+	// 오버로딩
 
 	public static void dbClose(Connection con, Statement stmt, ResultSet rs) {
 		if (con != null) {

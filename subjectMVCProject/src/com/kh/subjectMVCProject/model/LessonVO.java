@@ -1,5 +1,6 @@
 package com.kh.subjectMVCProject.model;
 
+
 public class LessonVO {
 	private int no;         //--pk seq
 	private String abbre; 	//--과목요약

@@ -2,6 +2,7 @@ package com.kh.subjectMVCProject.model;
 
 import java.sql.Date;
 
+
 //T.no, T.section, T.regdate, S.num, S.name as sname, L.abbre, L.name as lname 
 public class TraineeVO {
 	private int no; // --pk seq
