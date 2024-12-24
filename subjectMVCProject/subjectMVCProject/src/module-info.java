@@ -4,6 +4,6 @@
 /**
  * 
  */
-module JavaStudy {
+module subjectMVCProject {
 	requires java.sql;
 }

@@ -1,6 +1,5 @@
 package com.kh.subjectMVCProject.model;
 
-
 public class LessonVO {
 	private int no;         //--pk seq
 	private String abbre; 	//--과목요약
@@ -49,6 +48,6 @@ public class LessonVO {
 
 	@Override
 	public String toString() {
-		return "[no=" + no + ", abbre=" + abbre + ", name=" + name + "]";
+		return "LessonVO [no=" + no + ", abbre=" + abbre + ", name=" + name + "]";
 	}
 }

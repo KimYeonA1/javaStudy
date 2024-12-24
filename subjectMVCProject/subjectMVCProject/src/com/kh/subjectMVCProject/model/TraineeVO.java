@@ -2,7 +2,6 @@ package com.kh.subjectMVCProject.model;
 
 import java.sql.Date;
 
-
 //T.no, T.section, T.regdate, S.num, S.name as sname, L.abbre, L.name as lname 
 public class TraineeVO {
 	private int no; // --pk seq
@@ -97,12 +96,12 @@ public class TraineeVO {
 
 	@Override
 	public String toString() {
-		return "[no=" + no + ", s_num=" + s_num + ", abbre=" + abbre + ", section=" + section + ", regdate="
+		return "TraineeVO [no=" + no + ", s_num=" + s_num + ", abbre=" + abbre + ", section=" + section + ", regdate="
 				+ regdate + "]";
 	}
 
 	public String toAllString() {
-		return "[no=" + no + ", s_num=" + s_num + ", abbre=" + abbre + ", section=" + section + ", regdate="
+		return "TraineeVO [no=" + no + ", s_num=" + s_num + ", abbre=" + abbre + ", section=" + section + ", regdate="
 				+ regdate + ", s_name=" + s_name + ", l_name=" + l_name + "]";
 	}
 
